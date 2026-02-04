@@ -18,21 +18,9 @@ Disclaimer: This is not a substitute for professional therapy. It is just a side
 
 ## 🏗️ Architecture & Workflow
 
-```mermaid
-graph TD
-    A[User Request<br/>POST /predict] --> B[FastAPI Router]
-    B --> C[Multilingual BERT<br/>sentiment-analysis pipeline]
-    B --> D[SQLAlchemy ORM]
-    C --> E[{'POSITIVE'<br/>'NEGATIVE'}<br/>confidence score]
-    D --> F[PostgreSQL<br/>predictions table]
-    E --> G[Store Prediction<br/>id, text, sentiment,<br/>confidence, created_at]
-    G --> H[Response<br/>JSON with full record]
-    
-    I[GET /predictions] --> J[Query DB<br/>limit=100, skip=0]
-    J --> H
-    
-    K[Docker Compose] --> L[Postgres Container]
-    K --> M[FastAPI Container]
+```
+![Uploading BERT Sentiment Pipeline-2026-02-04-125338.png…]()
+
 ```
 
 **Project Workflow**
