@@ -17,11 +17,8 @@ Disclaimer: This is not a substitute for professional therapy. It is just a side
  
 
 ## 🏗️ Architecture & Workflow
+<img width="3107" height="6657" alt="BERT Sentiment Pipeline-2026-02-04-125338" src="https://github.com/user-attachments/assets/8e6d9ab1-9374-4f02-b34e-27e927e76469" />
 
-```
-![Uploading BERT Sentiment Pipeline-2026-02-04-125338.png…]()
-
-```
 
 **Project Workflow**
 - Data Prep: Load GoEmotions via datasets, preprocess with spaCy.
