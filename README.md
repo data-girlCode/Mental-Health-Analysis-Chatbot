@@ -1,12 +1,5 @@
 # Multilingual-Sentiment-Analysis-Chatbot
 
-# Multilingual Sentiment Analysis API
-
-[
-[
-[
-[
-
 A production-ready **Multilingual Sentiment Analysis API** that analyzes text sentiment across 100+ languages (English, Yoruba, Igbo, Hausa, etc.) using Hugging Face transformers. Built with FastAPI, PostgreSQL, and Docker Compose for easy deployment.
 
  
