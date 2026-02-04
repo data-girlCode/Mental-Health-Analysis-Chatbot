@@ -112,6 +112,4 @@ MIT License
 
 </div>
 
-***
-
-**Deploy in 60 seconds → Showcase in interviews → Land that ML Engineer role! 🚀**
+ 
