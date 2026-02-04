@@ -1,17 +1,20 @@
-# Multilingual-Sentiment-Analysis-Chatbot
+# Mental-Health-Chatbot (using Sentiment-Analysis)
 
-A production-ready **Multilingual Sentiment Analysis API** that analyzes text sentiment across 100+ languages (English, Yoruba, Igbo, Hausa, etc.) using Hugging Face transformers. Built with FastAPI, PostgreSQL, and Docker Compose for easy deployment.
-
+An AI-powered conversational agent for mental health support using NLP techniques like emotion detection and empathetic response generation. Built with Hugging Face Transformers, FastAPI.
  
 
 ## ✨ Features
+- Real-time emotion classification (joy, sadness, anger, etc.) using fine-tuned DistilBERT.
 
-- 🌍 **100+ Languages** - Pre-trained multilingual BERT model
-- ⚡ **FastAPI** - Automatic API docs + validation
-- 🗄️ **PostgreSQL** - Persistent prediction storage
-- 🐳 **Docker Compose** - One-command deployment
-- 📊 **Prediction History** - View all analyses
-- 🧪 **Full Test Suite** - Production quality
+- Context-aware, empathetic responses via T5 seq2seq model + RAG retrieval.
+
+- Multilingual support: English and basic Pidgin English.
+
+- Session memory for natural conversation flow.
+
+Disclaimer: This is not a substitute for professional therapy. It is just a side project i decided to work on.
+
+ 
 
 ## 🏗️ Architecture & Workflow
 
@@ -32,24 +35,30 @@ graph TD
     K --> M[FastAPI Container]
 ```
 
-**Data Flow**:
-1. User sends text → FastAPI validates
-2. Transformers pipeline predicts sentiment (0.3s)
-3. Result saved to PostgreSQL with timestamp
-4. Full prediction record returned
-5. History endpoint shows recent analyses
+**Project Workflow**
+- Data Prep: Load GoEmotions via datasets, preprocess with spaCy.
+
+- Model Training: Fine-tune BERT (trainer.train()) + T5 for responses.
+
+- RAG Pipeline: Embed WHO mental health PDFs into FAISS.
+
+- API: FastAPI endpoints with LangChain orchestration.
+
+- Deploy: Docker → Vercel (backend) + Netlify (frontend).
+
+**Datasets & Models**
+GoEmotions: 58k samples, 27 emotions [Hugging Face].
+
+Language: English, 
+
+Fine-tuned Models:  
+
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Docker & Docker Compose
-- Git
+Type "I'm feeling down today" → Detects sadness, responds empathetically.
 
-```bash
-git clone https://github.com/yourusername/multilingual-sentiment.git
-cd multilingual-sentiment
-cp .env.example .env  # Edit DATABASE_URL if needed
-docker compose up --build
+Say "I want to end it all" → Triggers crisis mode with resources.
 ```
 
 
@@ -57,28 +66,12 @@ docker compose up --build
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| **Backend** | FastAPI 0.115 | REST API + Auto-docs |
-| **ML Model** | bert-base-multilingual | 100+ language sentiment |
-| **Database** | PostgreSQL 16 | Prediction persistence |
-| **ORM** | SQLAlchemy 2.0 | Async database operations |
-| **Deployment** | Docker Compose | Local + Production ready |
-| **Testing** | Pytest | Model + API validation |
+| **Backend** |Python 3.11 | FastAPI 0.115 | LangChain | Redis |
+| **NLP Models** | Hugging Face Transformers (DistilBERT, T5)|  FAISS |
+| **Database** | PostgreSQL 16 |  |
+| **Deployment** | Docker | Vercel/Render |
+| **Data** | GoEmotions | EmpatheticDialogues datasets |
 
-
-
-## 🌐 API Documentation
-
-- **Swagger UI**: `/docs`
-- **ReDoc**: `/redoc`
-
-**Endpoints**:
-```
-POST  /predict           # Analyze single text
-POST  /predict_batch     # Analyze multiple texts
-GET   /predictions       # View prediction history
-GET   /health            # System status
-```
- 
 
 ### Render
 1. Connect GitHub repo
@@ -88,13 +81,9 @@ GET   /health            # System status
 
  
 
-## 📄 License
-
-MIT License
-
 ## 👨‍💼 Author
 
-**Sharon** - ML Engineer & Tech Entrepreneur  
+**Sharon** - ML Engineer  
 ***
 
 <div align="center">
