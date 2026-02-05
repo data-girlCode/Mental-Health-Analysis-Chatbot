@@ -1,0 +1,11 @@
+import streamlit as st
+from backend.core.chatbot import MentalHealthChatbot
+
+chatbot = MentalHealthChatbot()
+
+st.title("🧠 Mental Health Companion")
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Chat UI + backend integration here
+
